@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: "Products dimension table containing product details, aisles, and departments."
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_user
+    description: "User dimension table containing user order summaries."
+    columns:
+      - name: user_id
+        description: "Unique identifier for each user."
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_orders
+    description: "Fact table containing order and product line items."
+    columns:
+      - name: order_id
+        description: "Order identifier."
+        tests:
+          - not_null
+
+  - name: fct_rank
+    description: "Aggregated fact table ranking products by reorder frequency."
+    columns:
+      - name: product_id
+        description: "Product identifier."
+        tests:
+          - not_null
