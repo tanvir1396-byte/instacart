@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: stg_instacart__extracted_orders
+    description: "Staged orders data containing order and user information."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        tests:
+          - unique
+          - not_null
+
+      - name: user_id
+        description: "Unique identifier for each customer/user."
+        tests:
+          - not_null
+
+  - name: stg_instacart__extracted_products
+    description: "Staged products data containing product names, aisles, and departments."
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_instacart_raw__extracted_aisles
+    description: "Staged aisles data."
+    columns:
+      - name: aisle_id
+        description: "Unique identifier for each aisle."
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_instacart_raw__extracted_departments
+    description: "Staged departments data."
+    columns:
+      - name: department_id
+        description: "Unique identifier for each department."
+        tests:
+          - unique
+          - not_null
+
+
+  - name: stg_instacart__extracted_order_products_train
+    description: "Staged training order products data containing order-product mappings and reorder flags."
+    columns:
+      - name: order_id
+        description: "Unique identifier for the order."
+        tests:
+          - not_null
+
+      - name: product_id
+        description: "Unique identifier for the product."
+        tests:
+          - not_null
+
+  - name: stg_instacart_raw__extracted_order_products_prior
+    description: "Staged prior order products data containing historical order-product mappings."
+    columns:
+      - name: order_id
+        description: "Unique identifier for the order."
+        tests:
+          - not_null
+
+      - name: product_id
+        description: "Unique identifier for the product."
+        tests:
+          - not_null
