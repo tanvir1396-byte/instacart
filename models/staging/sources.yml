@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: instacart_raw
+    tables:
+    
+      - name: extracted_aisles
+      - name: extracted_departments
+      - name: extracted_order_products_prior
+      - name: extracted_order_products_train
+      - name: extracted_orders
+      - name: extracted_products
